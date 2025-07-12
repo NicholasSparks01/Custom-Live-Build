@@ -1,0 +1,12 @@
+#Full KDE Desktop + apps
+#task-kde-desktop
+
+#Core KDE + apps
+#kde-standard
+
+#Minimal KDE session
+kde-plasma-desktop
+
+#optional
+#kde-standard
+#konsole

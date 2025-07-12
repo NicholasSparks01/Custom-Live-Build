@@ -30,6 +30,8 @@ Built on top of **Debian Stable** (Bookworm... currently), this live environment
 - **Justified choices:** Each tool included has a documented reason. See `tools.md` (comming soon).
 - **Stable core:** Debian base with optional access to cutting-edge tools through backports and custom packaging.
 
+---
+
 ## 🏗️ Build Instructions
 
 > Prerequisites: Debian-based host with `live-build`, `xorriso`, and `debootstrap`.

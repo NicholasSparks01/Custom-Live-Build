@@ -40,5 +40,6 @@ Built on top of **Debian Stable** (Bookworm... currently), this live environment
 sudo apt install live-build
 git clone https://github.com/your-username/debian-reverse-live.git
 cd debian-reverse-live
+sudo chmod +x auto/*
 sudo lb build
 ```

@@ -41,5 +41,6 @@ sudo apt install live-build
 git clone https://github.com/your-username/debian-reverse-live.git
 cd debian-reverse-live
 sudo chmod +x auto/*
+lb config
 sudo lb build
 ```

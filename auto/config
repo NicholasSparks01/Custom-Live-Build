@@ -10,6 +10,7 @@ lb config noauto \
     --bootappend-live "boot=live components username=user quiet splash" \
     --iso-application "TSSP Live" \
     --iso-publisher "Nicholas Sparks" \
+    --image-name "ReForge-OS_2025-07"
     --iso-volume "Debian Live Bookworm" \
     --debian-installer-gui true \
     --apt-indices false \

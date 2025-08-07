@@ -31,14 +31,8 @@ jobs:
           debootstrap \
           squashfs-tools \
           xorriso \
+          syslinux \
           grub-pc-bin \
-          grub-efi-bin \
-          mtools \
-          dosfstools \
-          curl \
-          wget \
-          unzip \
-          default-jre \
           git
 
     - name: Run live-build (auto/config)

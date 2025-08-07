@@ -5,12 +5,12 @@ lb config noauto \
     --distribution bookworm \
     --binary-images iso-hybrid \
     --debian-installer live \
+    --debian-installer-gui \
     --archive-areas "main contrib non-free non-free-firmware" \
     --linux-packages "linux-image linux-headers" \
     --bootappend-live "boot=live components username=user quiet splash" \
     --iso-application "TSSP Live" \
     --iso-publisher "Nicholas Sparks" \
-    --image-name "ReForge-OS_2025-07"
     --debian-installer-gui true \
     --apt-indices false \
     --memtest none \

@@ -1,0 +1,51 @@
+name: Build Debian Live ISO
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-iso:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Install Required Packages
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          live-build \
+          debootstrap \
+          squashfs-tools \
+          xorriso \
+          grub-pc-bin \
+          grub-efi-bin \
+          mtools \
+          dosfstools \
+          curl \
+          wget \
+          unzip \
+          default-jre \
+          git
+
+    - name: Run live-build (auto/config)
+      run: |
+        sudo chmod +x auto/config
+        sudo ./auto/config
+
+    - name: Build the ISO (auto/build)
+      run: |
+        sudo chmod +x auto/build
+        sudo ./auto/build
+
+    - name: Upload ISO Artifact
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: debian-live.iso
+        path: live-image-amd64.hybrid.iso  # or whatever filename your build outputs

@@ -3,17 +3,13 @@
 lb config noauto \
     --mode debian \
     --distribution bookworm \
-    --security true \
-    --mirror-binary-security http://security.debian.org/debian-security \
-    --mirror-chroot-security http://security.debian.org/debian-security \
     --binary-images iso-hybrid \
     --debian-installer live \
-    --debian-installer-gui \
     --archive-areas "main contrib non-free non-free-firmware" \
     --linux-packages "linux-image linux-headers" \
     --bootappend-live "boot=live components username=user quiet splash" \
     --iso-application "TSSP Live" \
     --iso-publisher "Nicholas Sparks" \
-    --apt-indices false \
-    --memtest none \
+    --image-name "ReForge-OS_2025-07"
     "${@}"
+

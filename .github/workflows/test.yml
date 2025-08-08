@@ -1,53 +1,38 @@
 name: Build Debian Live ISO
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build-iso:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      
-    - name: Cache APT packages
-      uses: actions/cache@v4
-      with:
-        path: /var/cache/apt/archives
-        key: ${{ runner.os }}-apt-cache
-        restore-keys: |
-          ${{ runner.os }}-apt-
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Install Required Packages
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          live-build \
-          debootstrap \
-          squashfs-tools \
-          xorriso \
-          syslinux \
-          grub-pc-bin \
-          git
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-    - name: Run live-build (auto/config)
-      run: |
-        sudo chmod +x auto/config
-        sudo ./auto/config
+      - name: Build Docker image
+        run: |
+          docker build -t debian-live-auto .
 
-    - name: Build the ISO (auto/build)
-      run: |
-        sudo chmod +x auto/build
-        sudo ./auto/build
+      - name: Create output directory
+        run: mkdir -p output
 
-    - name: Upload ISO Artifact
-      if: success()
-      uses: actions/upload-artifact@v4
-      with:
-        name: debian-live.iso
-        path: live-image-amd64.hybrid.iso  # or whatever filename your build outputs
+      - name: Run live-build in Docker
+        run: |
+          docker run --rm --privileged \
+            -v ${{ github.workspace }}/output:/build/output \
+            -v ${{ github.workspace }}/auto:/build/auto \
+            debian-live-auto
+
+      - name: Upload ISO artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: debian-live-iso
+          path: output/*.iso

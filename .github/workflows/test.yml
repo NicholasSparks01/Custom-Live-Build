@@ -19,17 +19,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t debian-live-auto .
-
-      - name: Create output directory
-        run: mkdir -p output
-
-      - name: Run live-build in Docker
-        run: |
-          docker run --rm --privileged \
-            -v ${{ github.workspace }}/output:/build/output \
-            -v ${{ github.workspace }}/auto:/build/auto \
-            debian-live-auto
+          sudo ./docker-run.sh
 
       - name: Upload ISO artifact
         uses: actions/upload-artifact@v4

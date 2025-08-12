@@ -2,7 +2,7 @@
 
 lb config noauto \
     --mode debian \
-    --distribution bookworm \
+    --distribution trixie \
     --binary-images iso-hybrid \
     --debian-installer live \
     --archive-areas "main contrib non-free non-free-firmware" \
@@ -10,6 +10,9 @@ lb config noauto \
     --bootappend-live "boot=live components username=user quiet splash" \
     --iso-application "TSSP Live" \
     --iso-publisher "Nicholas Sparks" \
-    --image-name "ReForge-OS_2025-07"
+    --image-name "ReForge-OS" \
+    --mirror-bootstrap http://deb.debian.org/debian \
+    --mirror-chroot http://deb.debian.org/debian \
+    --mirror-binary http://deb.debian.org/debian
     "${@}"
 

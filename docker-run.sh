@@ -4,15 +4,8 @@ set -e
 # Ensure entrypoint.sh is executable
 chmod +x ./entrypoint.sh
 
-# Create named volumes for apt cache persistence
-#APT_CACHE_VOL="apt-cache"
-#APT_LISTS_VOL="apt-lists"
-
-#sudo docker volume create "$APT_CACHE_VOL" >/dev/null
-#sudo docker volume create "$APT_LISTS_VOL" >/dev/null
-
 # Start container in background with /output mounted
-CID=$(docker run -dit \
+CID=$(docker run -di \
     --privileged \
     -v "$(pwd)/output:/build" \
     -v "$(pwd)/entrypoint.sh:/entrypoint.sh" \
@@ -20,16 +13,12 @@ CID=$(docker run -dit \
     "debian:stable-slim" \
     bash)
 
-    #-v "$APT_CACHE_VOL:/var/cache/apt" \
-    #-v "$APT_LISTS_VOL:/var/lib/apt/lists" \
-
-
 # Copy config and auto dirs into container
 docker cp ./auto "$CID:/build/auto"
 docker cp ./config "$CID:/build/config"
 
 # Install dependencies and run entrypoint
-docker exec -it "$CID" bash -c "apt-get update && \
+docker exec -i "$CID" bash -c "apt-get update && \
     apt-get install -y --no-install-recommends \
         bash \
 	live-build \

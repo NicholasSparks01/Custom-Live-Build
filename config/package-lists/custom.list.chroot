@@ -1,9 +1,35 @@
-vim
+### APT Packages
 
-curl
-wget
+# --- Core Utilities ---
+wget                # command-line utility for downloading files from the web
+curl                # command-line tool to transfer data over HTTP, HTTPS, FTP, etc.
+unzip               # tool to extract .zip archives
+tree                # command to display directories in a tree-like format
+vim                 # terminal-based text editor
+tmux                # terminal multiplexer (split windows, persistent sessions)
 
-unzip
+# --- Networking / VPN ---
+openvpn             # VPN client/server for secure network tunneling
 
-# Kali Repo packages
-ghidra
+# --- Browsers ---
+firefox-esr         # Extended Support Release of Firefox browser
+
+# --- Virtualization / Emulation ---
+qemu-system         # QEMU full system emulator for x86, ARM, PPC, etc.
+qemu-utils          # QEMU disk/VM utilities (e.g., qemu-img for image management)
+qemu-system-gui     # GUI frontends for QEMU (GTK/SDL for graphical VM display)
+virt-viewer         # lightweight graphical viewer for QEMU/KVM virtual machines
+
+# --- System & Hardware ---
+usbutils            # utilities for managing/listing USB devices (e.g., lsusb)
+fprintd             # D-Bus service for fingerprint reader support
+libpam-fprintd      # PAM integration module for fingerprint authentication
+
+# --- ISO / OS Build Tools ---
+live-build          # tools for building customized Debian live ISO images
+
+# --- Productivity ---
+libreoffice         # free office suite (Writer, Calc, Impress, etc.)
+
+# --- Kali Repo Packages ---
+ghidra		# tool for Reverse Engineering binaries

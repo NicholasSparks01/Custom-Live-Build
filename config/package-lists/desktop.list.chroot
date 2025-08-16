@@ -1,12 +1,20 @@
-#Full KDE Desktop + apps
-#task-kde-desktop
+### Desktop Enviorments
+# (uncomment your Desktop Enviorment Selection)
 
-#Core KDE + apps
-#kde-standard
+# --- KDE ---
+#task-kde-desktop    # Full DE + recommended apps (meta-package)
+#kde-standard        # Core DE + standard apps (lighter than full stack)
+kde-plasma-desktop   # Minimal DE session (only Plasma desktop + very basic tools)
 
-#Minimal KDE session
-kde-plasma-desktop
+# --- XFCE ---
+#task-xfce-desktop   # Full DE  + recommended apps
+#xfce4		     # Core DE (basic panel, window manager, session)
+#xfce4-goodies          # Extra XFCE plugins and utilities (optional but nice to have)
+#xfce4-session          # Minimal XFCE session (session manager only, very lightweight)
 
-#optional
-#kde-standard
-#konsole
+# --- GNOME ---
+#task-gnome-desktop     # Full GNOME desktop environment + recommended apps
+#gnome                  # Core GNOME desktop environment (shell + base utilities)
+#gnome-core             # Slightly smaller GNOME install, just the essentials
+#gnome-session          # Minimal GNOME session (session manager only)
+#gnome-shell            # The GNOME shell itself (UI without apps or extras)

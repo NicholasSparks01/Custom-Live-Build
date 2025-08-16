@@ -1,3 +1,9 @@
 vim
+
 curl
-htop
+wget
+
+unzip
+
+# Kali Repo packages
+ghidra

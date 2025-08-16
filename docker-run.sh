@@ -32,6 +32,7 @@ docker exec -i "$CID" bash -c "apt-get update && \
         cpio \
         wget \
         git \
+	tree \
         make \
         sudo \
         ca-certificates && \

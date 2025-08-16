@@ -1,0 +1,8 @@
+Package: ghidra
+Pin: release n=kali-rolling
+Pin-Priority: 990
+
+Package: *
+Pin: release n=kali-rolling
+Pin-Priority: -1
+

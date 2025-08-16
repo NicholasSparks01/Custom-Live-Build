@@ -11,8 +11,3 @@ lb config noauto \
     --iso-application "TSSP Live" \
     --iso-publisher "Nicholas Sparks" \
     --image-name "ReForge-OS" \
-    --mirror-bootstrap http://deb.debian.org/debian \
-    --mirror-chroot http://deb.debian.org/debian \
-    --mirror-binary http://deb.debian.org/debian
-    "${@}"
-
